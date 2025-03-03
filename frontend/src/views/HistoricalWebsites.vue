@@ -20,8 +20,21 @@
   </div>
 </template>
 
-<script>
+<script setup>
 // TODO: Fetch websites data from API
+  import {ref, onMounted} from "vue";
+  import axios from "axios";
+
+  const websites = ref([]);
+  async function fetchWebsites() {
+    try {
+      const response = await axios.get("https://mch-dev.userwei.com/api/websites");
+      websites.value = response.data;
+    } catch(error) {
+      console.error("fetch failed");
+    }
+  }
+  onMounted(fetchWebsites);
 </script>
 
 <style scoped>
@@ -40,8 +53,26 @@
 
 .websites-grid {
   /* TODO: Add styles for a responsive grid layout */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 30px;
+  row-gap: 30px;
 }
-
+@media (max-width:1800px) {
+  .websites-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width:1300px) {
+  .websites-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:800px) {
+  .websites-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .website-card {
   background-color: #f9f9f9;
   border-radius: 10px;
