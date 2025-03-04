@@ -19,7 +19,8 @@
     <section class="about-section">
       <h3>個人資訊補充</h3>
       <ul>
-        <li>我的gitHub有我之前做的chatting room網站</li>
+        <li>我之前做的<a class="chattinglink" href="https://ss2024-midterm.web.app/">chatting room</a>網站，可以用用看！</li>
+        <li>(承上點，add user是在create chatting room以後把人加進來的功能)</li>
         <li>希望在大三這年可以再挑戰自己！</li>
         <li>拜託錄取我求你了</li>
       </ul>
@@ -74,7 +75,9 @@
   font-size: 1.0rem;
   margin-bottom: 20px;
 }
-
+.chattinglink {
+  text-decoration: underline;
+}
 .contact-button {
   padding: 10px 20px;
   background-color: #656d73;
